@@ -1,0 +1,213 @@
+:root {
+    font-family: "Outfit", sans-serif;
+    --h1-font: "Outfit", sans-serif;
+    --h1-size: 4.5rem;
+    --h1-weight: 900;
+    
+    --h2-font: "Outfit", sans-serif;
+    --h2-size: 3rem;
+    --h2-weight: 700;
+    
+    --p-font: "Outfit", sans-serif;
+    --p-size: 1rem;
+    --p-weight: 400;
+
+    --header-bg-color: #333333; /* Dark Grey (Black Shade) */
+    --nav-top-bg-color: #333333; /* Dark Grey (Black Shade) */
+    --nav-sub-bg-color: #333333; /* Dark Grey (Black Shade) */
+    --nav-holder-bg-color: #333333; /* Dark Grey (Black Shade) */
+    --nav-brand-height: 35px;
+    --nav-item-color: #ffffff; /* White */
+    --hero-bg-color: #FF7F11; /* Bright Orange */
+    --footer-brand-height: 80px;
+
+    --primary-color: #333333; /* Dark Grey (Black Shade) */
+    --secondary-color: #FF7F11; /* Bright Orange */
+    
+    --white-color: #ffffff;
+    --black-color: #333333; /* Dark Grey (Black Shade) */
+    --dark-grey-color: #111111; /* Darker Black Shade */
+
+    --primary-t-color: #333333; /* Dark Grey (Black Shade) */
+    --secondary-t-color: #ffffff; /* White */
+    --primary-p-color: #4d4d4d; /* Lighter Black Shade */
+    --secondary-p-color: #808080; /* Grey (Black Shade) */
+    --primary-b-color: #ffffff; /* White */
+    --primary-l-color: rgba(51, 51, 51, .25); /* Black Shade with transparency */
+    --secondary-l-color: rgba(255, 255, 255, 0.35); /* White with transparency */
+
+    --valid-color: #007a4d; /* Green (Kept original as it indicates a valid state) */
+    --invalid-color: #e34f4f; /* Red (Kept original as it indicates an invalid state) */
+
+    --primary-bg-color: #ffffff; /* White */
+    --primary-bg-color-2: #FF7F11; /* Bright Orange */
+    --primary-bg-color-3: rgba(255, 127, 17, 0.15); /* Bright Orange with transparency */
+
+    --secondary-bg-color: #333333; /* Dark Grey (Black Shade) */
+    --secondary-bg-color-2: #1a1a1a; /* Darker Black Shade */
+    --secondary-bg-color-3: #000000; /* Black */
+
+    --card-bg-color: #ffffff; /* White */
+
+    --footer-bg-color: #333333; /* Dark Grey (Black Shade) */
+}
+
+/* design a minimal scroll bar style */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secondary-bg-color-2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+
+.nav-link:hover, .nav-link:focus {
+    color: #FF7F11 !important;
+}
+
+.slide-content {
+    z-index: 100;
+}
+
+.active {
+    color: #FF7F11;
+    border-bottom: 2px solid #FF7F11;
+}
+
+.contact-btn {
+    position: relative;
+    z-index: 2;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: var(--secondary-color);
+    color: var(--white-color);
+    font-weight: 500;
+    -webkit-transition: all .4s ease-out 0s;
+    -o-transition: all .4s ease-out 0s;
+    -moz-transition: all .4s ease-out 0s;
+    transition: all .4s ease-out 0s;
+}
+
+.contact-btn:hover, .contact-btn:focus {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--primary-b-color);
+}
+/* #endregion Root */
+
+/*----------------------------------------------
+2. Button
+----------------------------------------------*/
+
+/* #region Button */
+
+.primary-button, .primary-button:visited, .primary-button:active {
+    position: relative;
+    z-index: 2;
+    padding: 10px 25px;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: var(--primary-color);
+    color: var(--primary-b-color);
+    font-weight: 500;
+    -webkit-transition: all .4s ease-out 0s;
+    -o-transition: all .4s ease-out 0s;
+    -moz-transition: all .4s ease-out 0s;
+    transition: all .4s ease-out 0s;
+}
+
+.primary-button:hover, .primary-button:focus {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.outline-button, .outline-button:visited, .outline-button:active {
+    position: relative;
+    z-index: 2;
+    padding: 10px 25px;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 500;
+    -webkit-transition: all .4s ease-out 0s;
+    -o-transition: all .4s ease-out 0s;
+    -moz-transition: all .4s ease-out 0s;
+    transition: all .4s ease-out 0s;
+}
+
+.odd .outline-button, .odd .outline-button:visited, .odd .outline-button:active {
+    position: relative;
+    z-index: 2;
+    padding: 10px 25px;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: var(--primary-color);
+    color: var(--primary-b-color);
+    font-weight: 500;
+    -webkit-transition: all .4s ease-out 0s;
+    -o-transition: all .4s ease-out 0s;
+    -moz-transition: all .4s ease-out 0s;
+    transition: all .4s ease-out 0s;
+}
+
+.outline-button:hover, .outline-button:focus {
+    border-color: var(--secondary-color);
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+/* #endregion Button */
+
+/* #region Effect */
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 var(--secondary-color);
+        background-color: var(--secondary-color);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+        background-color: rgba(204,169,44, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        background-color: rgba(204,169,44, 0);
+    }
+}
+  
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 var(--secondary-color);
+        box-shadow: 0 0 0 0 var(--secondary-color);
+        background-color: var(--secondary-color);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+        box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+        background-color: rgba(204,169,44, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        background-color: rgba(204,169,44, 0);
+    }
+}
+
+/* #endregion Effect */
