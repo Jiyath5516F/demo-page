@@ -75,6 +75,11 @@
             </div>
         </div>
 
+        <style>
+            .header {
+                z-index: 999;
+            }
+        </style>
         <!-- Header -->
         <header id="header">
 
@@ -152,14 +157,93 @@
                             <a href="gallery.html" class="nav-link">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a href="services.html" class="nav-link active">Services</a>
+                            <a href="services.html" class="nav-link">Services</a>
                         </li>
                         <li class="nav-item contact-btn">
                             <a href="contact.html" class="nav-link">Contact Us</i></a>
                         </li>
+                        <li class="nav-item contact-btn">
+                            <!-- Language Selector -->
+                            <div id="google_translate_element"></div>
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+                            <!-- Include Select2 JS for searchable dropdown -->
+                            <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+                            <script type="text/javascript">
+                                // Initialize Select2 on the language selector
+                                $(document).ready(function () {
+                                    $('#language-selector').select2();
+                                });
+    
+                                // Initialize Google Translate
+                                function googleTranslateElementInit() {
+                                    new google.translate.TranslateElement({
+                                        pageLanguage: 'en',
+                                        includedLanguages: 'af,sq,am,ar,hy,az,eu,be,bn,bs,bg,ca,ceb,ny,zh-CN,zh-TW,co,hr,cs,da,nl,en,eo,et,tl,fi,fr,fy,gl,ka,de,el,gu,ht,ha,haw,iw,hi,hmn,hu,is,ig,id,ga,it,ja,jw,kn,kk,km,rw,ko,ku,ky,lo,la,lv,lt,lb,mk,mg,ms,ml,mt,mi,mr,mn,my,ne,no,or,ps,fa,pl,pt,pa,ro,ru,sm,gd,sr,st,sn,sd,si,sk,sl,so,es,su,sw,sv,tg,ta,tt,te,th,tr,tk,uk,ur,ug,uz,vi,cy,xh,yi,yo,zu',
+                                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                                    }, 'google_translate_element');
+                                }
+    
+                                // Save selected language in localStorage and apply translation
+                                function saveLanguage() {
+                                    var language = document.getElementById("language-selector").value;
+                                    if (language) {
+                                        localStorage.setItem("selectedLanguage", language);
+                                        applyTranslation(language);
+                                    }
+                                }
+    
+                                // Manually change the language using Google Translate dropdown
+                                function applyTranslation(language) {
+                                    var googleTranslateElement = document.getElementById('google_translate_element');
+                                    if (googleTranslateElement) {
+                                        var iframe = googleTranslateElement.querySelector('iframe');
+                                        if (iframe) {
+                                            var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                                            var combo = iframeDocument.querySelector('.goog-te-combo');
+                                            if (combo) {
+                                                combo.value = language;
+                                                combo.dispatchEvent(new Event('change'));
+                                            }
+                                        }
+                                    }
+                                }
+    
+                                // Check localStorage for saved language on page load and apply it
+                                window.onload = function () {
+                                    var savedLanguage = localStorage.getItem("selectedLanguage");
+                                    if (savedLanguage) {
+                                        document.getElementById("language-selector").value = savedLanguage;
+                                        setTimeout(function () {
+                                            applyTranslation(savedLanguage);
+                                        }, 1000); // Delay for Google Translate iframe to load
+                                    }
+                                    // Bind the onchange event for selecting the language
+                                    document.getElementById("language-selector").addEventListener('change', saveLanguage);
+                                }
+                            </script>
+    
+                            <!-- Google Translate API script -->
+                            <script type="text/javascript"
+                                src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                        </li>
                     </ul>
+
+                    <!-- Navbar Toggle -->
+                    <ul class="navbar-nav toggle">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#menu">
+                                <i class="icon-menu m-0"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    
                 </div>
             </nav>
+
+            
 
         </header>
 
@@ -167,6 +251,8 @@
         <section id="slider" class="hero p-0 odd featured">
             <div class="swiper-container no-slider animation slider-h-50 slider-h-auto">
                 <div class="swiper-wrapper">
+
+                    
 
                     <!-- Item 1 -->
                     <div class="swiper-slide slide-center">
@@ -196,6 +282,65 @@
         
         <!-- Process -->
         <section id="process" class="section-1 process offers">
+
+            <select id="language-selector" onchange="saveLanguage()">
+                <option value="">Select Language</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="zh-CN">Chinese (Simplified)</option>
+                <option value="hi">Hindi</option>
+                <!-- Add more languages as needed -->
+            </select>
+        
+            <!-- Google Translate Element -->
+            <div id="google_translate_element" style="display: none;"></div>
+        
+            <script type="text/javascript">
+                // Initialize Google Translate
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',
+                        includedLanguages: 'en,es,fr,de,zh-CN,hi',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                }
+        
+                // Save selected language in localStorage and apply translation
+                function saveLanguage() {
+                    var language = document.getElementById("language-selector").value;
+                    if (language) {
+                        localStorage.setItem("selectedLanguage", language);
+                        setTimeout(function() { // Add a small delay to make sure the translate element is ready
+                            translateLanguage(language);
+                        }, 500);
+                    }
+                }
+        
+                // Translate page to the selected language
+                function translateLanguage(language) {
+                    var translateDiv = document.querySelector(".goog-te-combo");
+                    if (translateDiv) {
+                        translateDiv.value = language;
+                        translateDiv.dispatchEvent(new Event("change"));
+                    }
+                }
+        
+                // Check localStorage for saved language on page load and apply it
+                window.onload = function() {
+                    var savedLanguage = localStorage.getItem("selectedLanguage");
+                    if (savedLanguage) {
+                        document.getElementById("language-selector").value = savedLanguage;
+                        setTimeout(function() { // Wait for the Google Translate widget to load before applying
+                            translateLanguage(savedLanguage);
+                        }, 1000);
+                    }
+                }
+            </script>
+        
+            <script type="text/javascript" 
+                    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
             <div class="container full">
                 <div class="row text-center intro">
                     <div class="col-12">
