@@ -323,6 +323,99 @@
                 </div>
             </div>
         </section>
+        <section id="video" class="section-1 highlights image-center">
+            <div class="container smaller">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <style>
+                            .project-marketing-slider {
+                                width: 40%;
+                                position: relative;
+                                overflow: hidden;
+                                border-radius: 5px;
+                                border: 2px solid #0a0a0a;
+                            }
+    
+                            .project-marketing-slider .swiper-slide {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+    
+                            .project-marketing-slider .swiper-slide img {
+                                width: auto;
+                                height: auto;
+                                max-width: 100%;
+                                max-height: 100%;
+                                object-fit: contain;
+                            }
+    
+                            .swiper-button-prev,
+                            .swiper-button-next {
+                                display: none;
+                                color: #808080;
+                                padding: 27px 27px !important;
+                                border-radius: 50%;
+                                background-color: #ff8011bd;
+                                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.057);
+                            }
+    
+                            @media (max-width: 640px) and (orientation: portrait),
+                            (max-height: 560px) {
+                                .project-marketing-slider {
+                                    width: 80%;
+                                    position: relative;
+                                    overflow: hidden;
+                                }
+                            }
+                        </style>
+    
+    
+                        <div class="swiper-container project-marketing-slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="/assets/cert/AAJFF9219M.jpg" alt="Slide 1">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/assets/cert/MSME-images-0.jpg" alt="Slide 2">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/assets/cert/MSME-images-1.jpg" alt="Slide 3">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/assets/cert/MSME-images-2.jpg" alt="Slide 4">
+                                </div>
+                            </div>
+    
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+    
+                        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+                        <script>
+                            var swiper = new Swiper('.project-marketing-slider', {
+                                slidesPerView: 1,
+                                spaceBetween: 30,
+                                loop: true,
+                                pagination: {
+                                    el: '.swiper-pagination',
+                                    clickable: true,
+                                },
+                                navigation: {
+                                    nextEl: '.swiper-button-next',
+                                    prevEl: '.swiper-button-prev',
+                                },
+                                autoplay: {
+                                    delay: 1000,
+                                },
+                            });
+                        </script>
+    
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- About 2 -->
         <section id="about-2" class="section-2 odd highlights image-right counter funfacts featured">

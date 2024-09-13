@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>How To Add Google Translate Button On Your Webpage?</title>
+</head>
+
+<body>
+    <p>Hello everyone!</p>
+    <p>Welcome to GeeksforGeeks</p>
+
+    <p>Translate this page in your preferred language:</p>
+
+    <select id="language-select">
+        <option value="auto">Auto-detect</option>
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <!-- Add more languages as needed -->
+    </select>
+
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            // Retrieve the selected language from local storage
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            
+            // Initialize Google Translate with the saved language or default to 'en'
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en', includedLanguages: 'en,es,fr,de', autoDisplay: false, layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+                'google_translate_element'
+            );
+
+            // Set the dropdown to the saved language
+            document.getElementById('language-select').value = savedLanguage;
+
+            // Trigger a translation if there is a saved language
+            if (savedLanguage !== 'auto') {
+                google.translate.TranslateElement.getInstance().setEnabled(true);
+                google.translate.TranslateElement.getInstance().setLanguage(savedLanguage);
+            }
+        }
+
+        // Function to handle language change
+        function onLanguageChange() {
+            const selectedLanguage = document.getElementById('language-select').value;
+            localStorage.setItem('selectedLanguage', selectedLanguage);
+
+            // Trigger Google Translate to change language
+            if (selectedLanguage === 'auto') {
+                google.translate.TranslateElement.getInstance().setEnabled(true);
+            } else {
+                google.translate.TranslateElement.getInstance().setEnabled(true);
+                google.translate.TranslateElement.getInstance().setLanguage(selectedLanguage);
+            }
+        }
+
+        // Add event listener to the dropdown
+        document.getElementById('language-select').addEventListener('change', onLanguageChange);
+
+    </script>
+
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+    <p>You can translate the content of this page by selecting a language in the select box.</p>
+</body>
+
+</html>
