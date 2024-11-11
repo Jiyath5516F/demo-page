@@ -197,6 +197,11 @@
         <!-- Image Gallery 2 -->
         <section class="section-4 offers">
             <div class="container">
+                <div class="row text-center intro">
+                    <div class="col-12">
+                        <h2>Men's Category</h2>
+                    </div>
+                </div>
                 <div class="row gallery justify-content-center items">
                     <a class="col-12 col-md-6 col-lg-2 item" href="assets/f4i/men/Hooded Sweatshirt Full Sleeve.webp">
                         <img src="assets/f4i/men/Hooded Sweatshirt Full Sleeve.webp" alt="Hooded Sweatshirt Full Sleeve" class="w-100">
@@ -234,6 +239,21 @@
                         <img src="assets/f4i/men/Zipper Hooded Sweatshirt Full Sleeve.jpg" alt="Zipper Hooded Sweatshirt Full Sleeve" class="w-100">
                         <figcaption>Hooded Sweatshirt Full Sleeve</figcaption>
                     </a>
+                    <a class="col-12 col-md-6 col-lg-2 custom-link" href="/contact.html">
+                        <img src="assets/f4i/men/custom.jpg" alt="Custom" class="w-100">
+                        <figcaption>Custom</figcaption>
+                    </a>
+                    
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            document.querySelector(".custom-link").addEventListener("click", function(event) {
+                                event.preventDefault();
+                                window.location.href = "/contact.html";
+                            });
+                        });
+                    </script>
+                    
+                    
                 </div>
             </div>
         </section>

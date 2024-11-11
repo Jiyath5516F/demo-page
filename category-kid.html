@@ -202,6 +202,20 @@
                         <img src="assets/f4i/kid/Round Neck Half Sleeve.jpg" alt="Round Neck Half Sleeve" class="w-100">
                         <figcaption>Round Neck Half Sleeve</figcaption>
                     </a>
+
+                    <a class="col-12 col-md-6 col-lg-2 custom-link" href="/contact.html">
+                        <img src="assets/f4i/kid/custom.jpg" alt="Custom" class="w-100">
+                        <figcaption>Custom</figcaption>
+                    </a>
+                    
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            document.querySelector(".custom-link").addEventListener("click", function(event) {
+                                event.preventDefault();
+                                window.location.href = "/contact.html";
+                            });
+                        });
+                    </script>
                 </div>
             </div>
         </section>
