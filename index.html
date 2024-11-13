@@ -170,124 +170,6 @@
                         <a href="contact.html" class="nav-link">Contact Us</i></a>
                     </li>
 
-
-    <li class="nav-item">
-        <!-- Language Selector Container -->
-        <div id="google_translate_element" class="translate-container"></div>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <!-- Include Select2 JS for searchable dropdown -->
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-        <script type="text/javascript">
-            // Initialize Select2 on the language selector
-            $(document).ready(function () {
-                $('#language-selector').select2({
-                    dropdownAutoWidth: true,
-                    width: 'resolve',
-                });
-            });
-
-            // Initialize Google Translate
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                    includedLanguages: 'af,sq,am,ar,hy,az,eu,be,bn,bs,bg,ca,ceb,ny,zh-CN,zh-TW,co,hr,cs,da,nl,en,eo,et,tl,fi,fr,fy,gl,ka,de,el,gu,ht,ha,haw,iw,hi,hmn,hu,is,ig,id,ga,it,ja,jw,kn,kk,km,rw,ko,ku,ky,lo,la,lv,lt,lb,mk,mg,ms,ml,mt,mi,mr,mn,my,ne,no,or,ps,fa,pl,pt,pa,ro,ru,sm,gd,sr,st,sn,sd,si,sk,sl,so,es,su,sw,sv,tg,ta,tt,te,th,tr,tk,uk,ur,ug,uz,vi,cy,xh,yi,yo,zu',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                }, 'google_translate_element');
-            }
-
-            // Save selected language in localStorage and apply translation
-            function saveLanguage() {
-                var language = document.getElementById("language-selector").value;
-                if (language) {
-                    localStorage.setItem("selectedLanguage", language);
-                    applyTranslation(language);
-                }
-            }
-
-            // Manually change the language using Google Translate dropdown
-            function applyTranslation(language) {
-                var googleTranslateElement = document.getElementById('google_translate_element');
-                if (googleTranslateElement) {
-                    var iframe = googleTranslateElement.querySelector('iframe');
-                    if (iframe) {
-                        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-                        var combo = iframeDocument.querySelector('.goog-te-combo');
-                        if (combo) {
-                            combo.value = language;
-                            combo.dispatchEvent(new Event('change'));
-                        }
-                    }
-                }
-            }
-
-            // Check localStorage for saved language on page load and apply it
-            window.onload = function () {
-                var savedLanguage = localStorage.getItem("selectedLanguage");
-                if (savedLanguage) {
-                    document.getElementById("language-selector").value = savedLanguage;
-                    setTimeout(function () {
-                        applyTranslation(savedLanguage);
-                    }, 1000); // Delay for Google Translate iframe to load
-                }
-                // Bind the onchange event for selecting the language
-                document.getElementById("language-selector").addEventListener('change', saveLanguage);
-            }
-        </script>
-
-        <!-- Google Translate API script -->
-        <script type="text/javascript"
-            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    </li>
-
-    <!-- Responsive CSS for mobile -->
-    <style>
-        .translate-container {
-            width: 50px !important;
-            height: 50px !important;
-        }
-        /* Style for Select2 dropdown */
-        .select2-container {
-            width: 100% !important; /* Ensures the dropdown takes full width */
-        }
-
-        .translate-container {
-            margin: 0 auto; /* Center the dropdown */
-            z-index: 1000;
-        }
-
-        /* Media query for small screens */
-        @media only screen and (max-width: 768px) {
-            .translate-container {
-                max-width: 100%;
-                padding: 10px;
-            }
-
-            .select2-container {
-                font-size: 14px;
-            }
-
-            .select2-dropdown {
-                z-index: 9999;
-            }
-
-            .select2-container--default .select2-results__options {
-                max-height: 200px;
-                overflow-y: auto;
-            }
-        }
-
-        /* Ensure dropdown does not get clipped */
-        .nav-item {
-            overflow: visible;
-        }
-    </style>
-
-
-
-                    
-
                 </ul>
                 
                 
@@ -354,102 +236,47 @@
     </section>
 
     <!-- Video -->
-    <section id="video" class="section-1 highlights image-center">
-        <div class="container smaller">
-            <!-- <div class="row text-center intro">
+    <section class="section-2 offers">
+        <div class="container">
+            <div class="row text-center intro">
                 <div class="col-12">
-                    <h2>F4 <span class="featured"><span>INTERNATIONAL</span></span></h2>
-                    <p class="text-max-800">At F4 INTERNATIONAL, we streamline global trade with reliable export and
-                        import services, making international business smooth and successful for our clients.</p>
-                </div>
-            </div> -->
-            <!-- <div class="row text-center">
-                <div class="col-12">
-                    <style>
-                        .project-marketing-slider {
-                            width: 40%;
-                            position: relative;
-                            overflow: hidden;
-                        }
-
-                        .project-marketing-slider .swiper-slide {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                        }
-
-                        .project-marketing-slider .swiper-slide img {
-                            width: auto;
-                            height: auto;
-                            max-width: 100%;
-                            max-height: 100%;
-                            object-fit: contain;
-                        }
-
-                        .swiper-button-prev,
-                        .swiper-button-next {
-                            display: none;
-                            color: #808080;
-                            padding: 27px 27px !important;
-                            border-radius: 50%;
-                            background-color: #ff8011bd;
-                            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.057);
-                        }
-
-                        @media (max-width: 640px) and (orientation: portrait),
-                        (max-height: 560px) {
-                            .project-marketing-slider {
-                                width: 80%;
-                                position: relative;
-                                overflow: hidden;
-                            }
-                        }
-                    </style>
-
-
-                    <div class="swiper-container project-marketing-slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="/assets/cert/AAJFF9219M.jpg" alt="Slide 1">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/assets/cert/MSME-images-0.jpg" alt="Slide 2">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/assets/cert/MSME-images-1.jpg" alt="Slide 3">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/assets/cert/MSME-images-2.jpg" alt="Slide 4">
-                            </div>
+                    <h2>Collections</h2>
+                    <div class="row item widget-tags">
+                        <div class="col-12 align-self-center">
+                            <!-- <div class="badges">
+                                <span class="badge">Light</span>
+                                <span class="badge">3 Columns</span>
+                                <span class="badge">Default Container</span>
+                            </div> -->
                         </div>
-
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
                     </div>
-
-                    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-                    <script>
-                        var swiper = new Swiper('.project-marketing-slider', {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                            loop: true,
-                            pagination: {
-                                el: '.swiper-pagination',
-                                clickable: true,
-                            },
-                            navigation: {
-                                nextEl: '.swiper-button-next',
-                                prevEl: '.swiper-button-prev',
-                            },
-                            autoplay: {
-                                delay: 1000,
-                            },
-                        });
-                    </script>
-
                 </div>
-            </div> -->
+            </div>
+            <style>
+                figcaption {
+                    font-style: normal;
+                    background-color: #FF7F11;
+                    color: white;
+                    font-weight: bold;
+                    padding: 2px;
+                    text-align: center;
+                  }
+
+            </style>
+            <div class="row justify-content-center items hero-cat">
+                <a class="col-12 col-md-6 col-lg-4 item" href="/category-men.html">
+                    <img src="assets/images/men.jpg" alt="coconut_oil" class="w-100">
+                    <figcaption>Men's Collection</figcaption>
+                </a>
+                <a class="col-12 col-md-6 col-lg-4 item" href="/category-women.html">
+                    <img src="assets/images/women.jpg" alt="coconut_oil" class="w-100">
+                    <figcaption>Women's Collection</figcaption>
+                </a>
+                <a class="col-12 col-md-6 col-lg-4 item" href="/category-kid.html">
+                    <img src="assets/images/kid.jpg" alt="coconut_oil" class="w-100 ">
+                    <figcaption>Kid's Collection</figcaption>
+                </a>
+            </div>
         </div>
     </section>
 
